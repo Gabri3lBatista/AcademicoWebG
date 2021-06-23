@@ -4,8 +4,7 @@
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-<%@page errorPage="erro.jsp" %>
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html>
 <jsp:useBean id="cnx" scope="session" class="br.ufac.academico.db.Conexao" />
 <jsp:useBean id="cul" scope="page" class="br.ufac.academico.logic.CursoLogic" />

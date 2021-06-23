@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@page errorPage="erro.jsp" %>
+ 
 <!DOCTYPE html>
 <html>
 <jsp:useBean id="cnx" scope="session" class="br.ufac.academico.db.Conexao" />
@@ -22,7 +22,7 @@
 <%
 	if(request.getParameter("cancelar") != null){
 %>
-<jsp:forward page="cursoIncluir.jsp" />
+<jsp:forward page="cursoListar.jsp" />
 <%
 	}
 %>
@@ -38,7 +38,7 @@
 	
 		cl.adicionar(codigo, nome);
 %>
-<jsp:forward page="cursoIncluir.jsp" />
+<jsp:forward page="cursoListar.jsp" />
 <%
 	}
 %>
