@@ -2,7 +2,6 @@
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-<%@page errorPage="erro.jsp" %>
 <!DOCTYPE html>
 <html>
 <jsp:useBean id="cnx" scope="session" class="br.ufac.academico.db.Conexao" />
@@ -44,7 +43,7 @@
 		int ch = Integer.parseInt(request.getParameter("ch"));
 		String sigla = request.getParameter("centro");
 		centro = cl.recuperar(sigla);
-		dl.atualizar(codigo, nome, ch, centro);
+		dl.adicionar(codigo, nome, ch, centro);
 		
 %>
 <jsp:forward page="disciplinaListar.jsp" />
@@ -54,23 +53,14 @@
 <%
 	List<Centro> centros = cl.recuperarTodosPorNome();
 
- 	if(request.getParameter("codigo") != null &&
- 		request.getParameter("nome") == null &&
- 		request.getParameter("ch") == null &&
- 		request.getParameter("centro") == null)
- 	{
- 		String codigo = request.getParameter("codigo"); 
- 		d = dl.recuperar(codigo);
- 	}
-
 %>
 <h1>Sistema de Controle Acadêmico</h1>
 <h2>Edição de Disciplina</h2>
-<form action="disciplinaEditar.jsp" method="post">
+<form action="disciplinaIncluir.jsp" method="post">
 <p>
 	Codigo: <input type="text" name="codigo"  /> <br/>
 	Nome: <input type="text" name="nome"  /> <br/>
-	CH: <input type="text" name="rg"  /> <br/>
+	CH: <input type="text" name="ch"  /> <br/>
 	Centro: <select name="centro">
 <%
 	for(Centro c : centros){

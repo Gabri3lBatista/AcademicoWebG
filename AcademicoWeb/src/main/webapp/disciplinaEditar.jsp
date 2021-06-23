@@ -2,7 +2,6 @@
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-<%@page errorPage="erro.jsp" %>
 <!DOCTYPE html>
 <html>
 <jsp:useBean id="cnx" scope="session" class="br.ufac.academico.db.Conexao" />
@@ -41,7 +40,7 @@
 	if(request.getParameter("confirmar") != null){
 		String codigo = request.getParameter("codigo"); 
 		String nome = request.getParameter("nome");
-		int ch = Integer.parseInt(request.getParameter("rg"));
+		int ch = Integer.parseInt(request.getParameter("ch"));
 		String sigla = request.getParameter("centro");
 		centro = cl.recuperar(sigla);
 		dl.atualizar(codigo, nome, ch, centro);
@@ -70,7 +69,7 @@
 <p>
 	Codigo: <input type="text" name="codigo" value="<%= d.getCodigo() %>" readonly="readonly" /> <br/>
 	Nome: <input type="text" name="nome" value="<%= d.getNome() %>" /> <br/>
-	CH: <input type="text" name="rg" value="<%= d.getCh() %>" /> <br/>
+	CH: <input type="text" name="ch" value="<%= d.getCh() %>" /> <br/>
 	Centro: <select name="centro">
 <%
 	for(Centro c : centros){

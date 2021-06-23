@@ -3,7 +3,6 @@
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-<%@page errorPage="erro.jsp" %>
 <!DOCTYPE html>
 <html>
 <jsp:useBean id="cnx" scope="session" class="br.ufac.academico.db.Conexao" />
@@ -85,8 +84,8 @@
 		<td><%= d.getNome() %></td>		
 		<td><%= d.getCentro().getSigla() %></td>
 		<td>
-			<a href="discidlinaEditar.jsp?codigo=<%= d.getCodigo() %>">Editar</a>
-			<a href="discidlinaExcluir.jsp?codigo=<%= d.getCodigo() %>">Excluir</a>
+			<a href="disciplinaEditar.jsp?codigo=<%= d.getCodigo() %>">Editar</a>
+			<a href="disciplinaExcluir.jsp?codigo=<%= d.getCodigo() %>">Excluir</a>
 		</td>
 	</tr>
 <%
