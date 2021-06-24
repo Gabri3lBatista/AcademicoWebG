@@ -39,11 +39,11 @@
 	
 
 	if(request.getParameter("confirmar") != null){
-		long codigo = Long.parseLong(request.getParameter("codigo")); 
-		String cod = request.getParameter("curso");
-		curso = cl.recuperar(Integer.parseInt(cod));
+		long co = Long.parseLong(request.getParameter("codigo")); 
+		String codigo = request.getParameter("curso");
+		curso = cl.recuperar(Integer.parseInt(codigo));
 		String descricao = request.getParameter("descricao");
-		cll.atualizar(codigo, curso, descricao);
+		cll.atualizar(co, curso, descricao);
 		
 %>
 <jsp:forward page="curriculoListar.jsp" />
@@ -72,7 +72,7 @@
 <%
 	for(Curso cu : cursos){
 %>
-		<option value="<%= c.getCodigo()%>" <%= (c.getCodigo()==c.getCurso().getCodigo())?"selected":"" %> >
+		<option value="<%= cu.getCodigo()%>" <%= (cu.getCodigo()==c.getCurso().getCodigo())?"selected":"" %> >
 			<%= cu.getNome()%>
 		</option>
 <%
