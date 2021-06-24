@@ -2,7 +2,6 @@
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-<%@page errorPage="erro.jsp" %>
 <!DOCTYPE html>
 <html>
 <jsp:useBean id="cnx" scope="session" class="br.ufac.academico.db.Conexao" />
@@ -27,7 +26,7 @@
 <%
 	if(request.getParameter("cancelar") != null){
 %>
-<jsp:forward page="alunoListar.jsp" />
+<jsp:forward page="curriculoListar.jsp" />
 <%
 	}
 %>
@@ -43,10 +42,10 @@
 		String cod = request.getParameter("curso");
 		curso = cl.recuperar(Integer.parseInt(cod));
 		String descricao = request.getParameter("descricao");
-		cll.atualizar(codigo, curso, descricao);
+		cll.adicionar(codigo, curso, descricao);
 		
 %>
-<jsp:forward page="alunoListar.jsp" />
+<jsp:forward page="curriculoListar.jsp" />
 <%
 	}
 %>
@@ -54,8 +53,8 @@
 	List<Curso> cursos = cl.recuperarTodosPorNome();
 %>
 <h1>Sistema de Controle Acadêmico</h1>
-<h2>Inclusão de Aluno</h2>
-<form action="alunoIncluir" method="post">
+<h2>Inclusão de Curriculo</h2>
+<form action="curriculoIncluir.jsp" method="post">
 <p>
 	Código: <input type="text" name="codigo" /> <br/>
 	Descrição: <input type="text" name="descricao" /> <br/>
